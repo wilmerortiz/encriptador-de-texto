@@ -19,7 +19,7 @@ function mostrarTexto(texto){
 }
 
 function encriptar(){
-  var texto = document.getElementById('texto').value;
+  var texto = document.getElementById('texto').value.toLowerCase();
   var newTexto = '';
   var txt;
   if(texto && texto != ' '){
@@ -47,7 +47,7 @@ function encriptar(){
 
 function desencriptar(){
 
-  var texto = document.getElementById('texto').value;
+  var texto = document.getElementById('texto').value.toLowerCase();
   var newTexto = '';
   var letra = texto[0];
 
@@ -57,12 +57,18 @@ function desencriptar(){
       for(var ky in keys){//a ->, e,i,a,o,u
         if(keys.hasOwnProperty(ky)){
           if(texto[0] === ky){
-            //obtenemos la letra desencriptada;
-            letra = ky;
-            //una vez que hemos econtrado la letra, convertimos en un nuevo texto utilizando la función de javascript (slice)
-            texto = texto.slice(keys[ky].length);
+            if(texto.substring(0, keys[ky].length) === keys[ky]){
+              //obtenemos la letra desencriptada;
+              letra = ky;
+              //una vez que hemos econtrado la letra, convertimos en un nuevo texto utilizando la función de javascript (slice)
+              texto = texto.slice(keys[ky].length);
+
+            }else{
+              letra = texto[0];
+              texto = texto.slice(1);
+            }
+
             contador++;
-            break;
           }
         }
       }
@@ -78,7 +84,7 @@ function desencriptar(){
     mostrarTexto(newTexto);
 
   }else{
-    alert('Digíte un texto');
+    alert('Digíte un texto para continuar');
   }
 
 }
@@ -86,7 +92,7 @@ function desencriptar(){
 function copyText() {
     var copyText = document.getElementById("mensaje").value;
     navigator.clipboard.writeText(copyText).then(() => {
-        alert("Texto copiado al portapapeles!");
+        alert("Texto copiado al portapapeles, precione las teclas CTRL + V para pegar el texto!");
         //Posicionamos el cursor en el campo de escribir texto.
         document.getElementById("texto").focus();
     });
