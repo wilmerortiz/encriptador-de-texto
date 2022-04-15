@@ -191,11 +191,13 @@ button{
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
+    color: #343A40;
 }
 
 .contenido-inicial p{
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
+    color: #495057;
 }
 
 
