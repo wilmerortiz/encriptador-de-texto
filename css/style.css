@@ -1,14 +1,18 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 body {
     background-color: #F3F5FC;
     min-height: 100vh;
+    width: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 textarea {
+    font-family: 'Roboto Condensed', sans-serif;
     background: transparent;
     border: none;
     outline: none;
@@ -16,33 +20,35 @@ textarea {
     resize: none;
 }
 
-.container{
-    padding: 0px 50px;
-    position: absolute;
-    background-color: #F3F5FC;
+.d-flex{
     display: flex;
-    width: 90%;
     justify-content: center;
     align-items: center;
-    min-height:70vh;
-    margin-bottom: 20px;
 }
 
-.container-texto{
-    width: 80%;
-    min-height: 70vh;
-    /*border: 1px solid #0A3871;*/
-}
-
-.section{
-    width: 60%;
-    margin: 0 auto;
-    padding: 20px 100px;
-    display: flex;
-    justify-content:center;
+.flex-column {
     flex-direction: column;
-    min-height:70vh;
-    /*border: 1px solid #0A3871;*/
+}
+
+.w-100{
+    width: 100%;
+}
+
+.w-70{
+    width: 70%;
+}
+
+.w-30{
+    width: 30%;
+}
+
+.w-20px{
+    width: 400px;
+}
+
+.container{
+    position: relative;
+    padding: 30px 120px
 }
 
 .logo{
@@ -51,23 +57,24 @@ textarea {
     color: #0A3871
 }
 
-.section-text{
-    height: 100%;
-    width: 100%;
+.section{
+    width: 80%;
+    margin: 0 auto;
+    min-height:70vh;
 }
 
 .texto{
     width: 100%;
-    min-height: 60vh;
+    min-height: 50vh;
     font-size: 25px;
-    font-family: 'Inter';
     font-style: normal;
     color: #0A3871;
 }
 
-.footer{
+.buttons{
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 }
 
 .info{
@@ -97,10 +104,32 @@ textarea {
     content: '!';
 }
 
-.buttons{
-    display: flex;
-    justify-content: space-between;
+.container-right{
+    padding: 20px;
+    background: #fff;
+    min-height:80vh;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
 }
+
+.contenido-inicial h3{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343A40;
+}
+
+.contenido-inicial p{
+    font-size: 20px;
+    text-align: center;
+    color: #495057;
+}
+
+.div-resultado{
+    align-items: center;
+    min-height:70vh;
+}
+
 
 button{
     font-size: 16px;
@@ -159,55 +188,11 @@ button{
     color: #FFFFFF;
 }
 
-.container-mensaje{
-    margin: 0px 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    background: #fff;
-    min-height:80vh;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-    border-radius: 32px;
-}
-.div-resultado{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    min-height:85vh;
-}
-.contenido-inicial{
-    padding: 0px 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height:85vh;
-
-}
-
-.contenido-inicial h3{
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #343A40;
-}
-
-.contenido-inicial p{
-    font-size: 20px;
-    text-align: center;
-    color: #495057;
-}
-
-
 .resultado{
-    padding: 50px 20px;
+    padding: 34px 20px;
     width: 100%;
-    text-align: justify;
+    text-align: center;
     min-height: 60vh;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 24px;
 }
@@ -225,7 +210,32 @@ button{
     background: transparent;
 }
 
-@media (max-width: 1050px){
+.section-footer{
+    z-index: -1;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: 100px;
+    background-color: #0A3871;
+    border-radius: 100% 100% 0 0;
+}
+
+.content-footer{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-footer p{
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-top:20px
+}
+
+@media (max-width: 1276px){
+    .container-left{
+        width: 90%;
+        margin-bottom: 20px;
+    }
     .section{
         width: 100%;
         padding: 0;
@@ -235,7 +245,7 @@ button{
         position: relative;
         flex-direction: column;
     }
-    .container-texto{
+    .container-right{
         width: 90%;
         margin-bottom: 20px;
     }
@@ -244,6 +254,31 @@ button{
         width: 90%;
     }
 }
+
+@media (max-width: 1050px){
+    .container-left{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .section{
+        width: 100%;
+        padding: 0;
+    }
+    .container{
+        padding: 30px;
+        position: relative;
+        flex-direction: column;
+    }
+    .container-right{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .container-mensaje{
+        width: 90%;
+    }
+}
+
 
 
 @media (max-width: 750px){
@@ -257,7 +292,7 @@ button{
         position: relative;
         flex-direction: column;
     }
-    .container-texto{
+    .container-right{
         width: 90%;
         margin-bottom: 20px;
     }
@@ -274,5 +309,16 @@ button{
 
     .container-mensaje{
         width: 90%;
+    }
+
+    .content-footer{
+        flex-direction: column
+    }
+}
+
+@media (max-width: 750px){
+    .buttons{
+        flex-direction: column;
+        width: 100%;
     }
 }
