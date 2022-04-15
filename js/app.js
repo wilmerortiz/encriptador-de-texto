@@ -1,0 +1,94 @@
+var keys = {
+  e : 'enter',
+  i : 'imes',
+  a : 'ai',
+  o : 'ober',
+  u : 'ufat'
+}
+
+function mostrarTexto(texto){
+  document.getElementById('mensaje').value = texto;
+  document.getElementById('texto').value = '';
+}
+
+function encriptar(){
+  var texto = document.getElementById('texto').value;
+  var newTexto = '';
+  var txt;
+  if(texto && texto != ' '){
+
+    for(var i = 0; i < texto.length; i++){
+
+      for(var ky in keys){
+        if(texto[i] == ky){
+          txt = keys[ky];
+          break;
+        }else{
+          txt = texto[i];
+        }
+      }
+      newTexto = newTexto + txt;
+    }
+
+    mostrarTexto(newTexto);
+
+  }else{
+    alert('Digíte un texto');
+  }
+
+}
+
+function desencriptar(){
+
+  var texto = document.getElementById('texto').value;
+  var newTexto = '';
+  var letra = texto[0];
+
+  if(texto && texto != ' '){
+    while (texto.length > 0){
+      var contador = 0;
+      for(var ky in keys){//a ->, e,i,a,o,u
+        if(keys.hasOwnProperty(ky)){
+          if(texto[0] === ky){
+            //obtenemos la letra desencriptada;
+            letra = ky;
+            //una vez que hemos econtrado la letra, convertimos en un nuevo texto utilizando la función de javascript (slice)
+            texto = texto.slice(keys[ky].length);
+            contador++;
+            break;
+          }
+        }
+      }
+
+      if(contador === 0){
+        letra = texto[0];
+        texto = texto.slice(1);
+      }
+
+      newTexto = newTexto + letra;
+    }
+
+    mostrarTexto(newTexto);
+
+  }else{
+    alert('Digíte un texto');
+  }
+
+}
+
+function copyText() {
+    var copyText = document.getElementById("mensaje").value;
+    navigator.clipboard.writeText(copyText).then(() => {
+        alert("Texto copiado al portapapeles!");
+        //Posicionamos el cursor en el campo de escribir texto.
+        document.getElementById("texto").focus();
+    });
+  }
+
+var btnEncriptar = document.getElementById('encriptar');
+var btnDesencriptar = document.getElementById('desencriptar');
+var btnCopy = document.getElementById('copy');
+
+btnEncriptar.onclick = encriptar;
+btnDesencriptar.onclick = desencriptar;
+btnCopy.onclick = copyText;
