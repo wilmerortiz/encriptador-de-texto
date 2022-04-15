@@ -49,15 +49,15 @@ function desencriptar(){
 
   var texto = document.getElementById('texto').value.toLowerCase();
   var newTexto = '';
-  var letra = texto[0];
+  var letra;
 
   if(texto && texto != ' '){
     while (texto.length > 0){
       var contador = 0;
-      for(var ky in keys){//a ->, e,i,a,o,u
+      for(var ky in keys){
         if(keys.hasOwnProperty(ky)){
-          if(texto[0] === ky){
-            if(texto.substring(0, keys[ky].length) === keys[ky]){
+          if(texto[0] == ky){
+            if(texto.substring(0, keys[ky].length) == keys[ky]){
               //obtenemos la letra desencriptada;
               letra = ky;
               //una vez que hemos econtrado la letra, convertimos en un nuevo texto utilizando la función de javascript (slice)
@@ -69,6 +69,8 @@ function desencriptar(){
             }
 
             contador++;
+
+            break;
           }
         }
       }
