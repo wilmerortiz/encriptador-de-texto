@@ -20,7 +20,7 @@
         </div>
 
         <div class="footer">
-          <div class="info">Sólo letras minúsculas y sín acento.</div>
+          <div class="info"><span></span>Sólo letras minúsculas y sín acento.</div>
           <div class="buttons">
             <button class="btn-encriptar" id="encriptar">Encriptar</button>
             <button class="btn-desencriptar" id="desencriptar"><D></D>Desencriptar</button>
@@ -30,10 +30,17 @@
     </div>
 
     <div class="container-mensaje">
-      <div class="div-resultado">
-        <textarea class="text-resultado" id="mensaje"></textarea>
+      <div class="div-resultado none" id="div-resultado" style="display:none">
+        <textarea id="mensaje" style="display:none"></textarea>
+        <div id="resultado" class="resultado" style="width: 100%">fff</div>
+        <button class="btn-copy" id="copy">Copiar</button>
       </div>
-      <button class="btn-copy" id="copy">Copiar</button>
+
+      <div class="contenido-inicial" id="contenido-inicial" >
+          <img src="img/munieco.jpg" alt="muñeco">
+          <h3>Ningún mensaje fue encontrado.</h3>
+          <p>Ingrese el texto que desee encontrado o desencriptar</p>
+        </div>
     </div>
 
   </div>

@@ -7,8 +7,15 @@ var keys = {
 }
 
 function mostrarTexto(texto){
+  var divResultado = document.getElementById('div-resultado');
+  var divInicial = document.getElementById('contenido-inicial');
+
   document.getElementById('mensaje').value = texto;
+  document.getElementById('resultado').innerText = texto;
   document.getElementById('texto').value = '';
+
+  divResultado.removeAttribute('style');
+  divInicial.setAttribute('style', 'display: none');
 }
 
 function encriptar(){
